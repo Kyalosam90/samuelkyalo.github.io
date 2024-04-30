@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sam's Portfolio</title>
+
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Work+Sans:wght@100;200;300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Urbanist:wght@100;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  </head>
+  <body>
+    <style>
+      body {
+        background-image: src= "img/placeholder2.jpg";
+      }
+      .pattern {
+        background-image: src = "img/placeholder2.jpg" ;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        opacity: 5;
+      }
+
+      .custom-font-1 {
+        font-family: "Raleway", sans-serif;
+      }
+
+      .custom-font-2 {
+        font-family: "Urbanist", sans-serif;
+      }
+
+      hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 4px solid black;
+    margin: 1em 0;
+    padding: 0;
+}
+
+      #backToTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border: none;
+        border-radius: 50%;
+        background-color: #000;
+        color: #fff;
+        font-size: 0; /* Hide any text inside the button */
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+      }
+
+      #backToTopBtn:hover {
+        opacity: 1;
+      }
+
+      .bg{
+        color: black;
+      }
+      .slidep{
+        color: black;
+      }
+    </style>
+
+    <!-- Header -->
+
+    <header class="pattern">
+      <div class="px-6 mx-auto bg">
+        <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-6">
+          <div class="flex h-16 items-center justify-between">
+            <div class="flex-1 md:flex md:items-center md:gap-12">
+              <a class="block" href="home">
+                <span style="color: #000;" class="sr-only">Home</span>
+                <img class="w-auto h-6 sm:h-12" src="img/Samuel Kyalo.png" alt="logo" />
+              </a>
+            </div>
+
+            <div class="flex lg:hidden px-6">
+              <button
+                id="menu-toggle"
+                type="button"
+                class="-m-2.5 inline-flex items-center justify-center rounded-md p-1.5 text-gray-300"
+              >
+                <span class="sr-only">Open main menu</span>
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div class="hidden lg:flex lg:gap-x-12">
+              <ul class="flex items-center gap-6 text-sm">
+                <li>
+                  <a
+                    class="px-1 py-1 text-sm font-light transition-colors duration-300 transform hover:underline underline-offset-8 tracking-widest custom-font-2"
+                    href="#about" style="color: #000;"
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="py-1 text-sm font-light text-white transition-colors duration-300 transform hover:underline underline-offset-8 tracking-widest custom-font-2"
+                    href="#projects" style="color: #000;"
+                  >
+                    Projects
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="py-1 text-sm font-light text-white transition-colors duration-300 transform hover:underline underline-offset-8 tracking-widest custom-font-2"
+                    href="#contact" style="color: #000;"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Mobile menu, show/hide based on menu open state -->
+            <div class="hidden" role="dialog" aria-modal="true" id="menu">
+              <div class="fixed inset-0 z-10">
+                <div
+                  class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-10 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+                >
+                  <div class="flex lg:hidden px-8 items-center justify-between">
+                    <a href="home" class="-m-1.5 p-1.5">
+                      <span class="sr-only" style="color: #000;">Home</span>
+                    </a>
+                    <button
+                      type="button"
+                      id="close-menu"
+                      class="inline-flex items-center justify-center rounded-md p-1.5 text-gray-700"
+                    >
+                      <span class="sr-only">Close menu</span>
+                      <svg
+                        class="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div class="mt-6 flow-root">
+                    <div class="-my-6 divide-y divide-gray-500/10">
+                      <div class="space-y-2 py-6">
+                        <a
+                          href="#about"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center block px-4 py-2 hover:bg-gray-100"
+                        style="color: black;">
+                          About
+                        </a>
+                        <a
+                          href="#projects"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center block px-4 py-2 hover:bg-gray-100"
+                          style="color: black;">
+                          Projects
+                        </a>
+                        <a
+                          href="#contact"
+                          class="-mx-3 text-sm font-semibold leading-6 text-center block px-4 py-2 hover:bg-gray-100"
+                          style="color: black;">
+                          Contact
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr style="color: black;">
+            <!-- End of Mobile menu, show/hide based on menu open state -->
+          </div>
+        </div>
+        <div class="slidep" style="color: black;">
+        <div class="flex flex-col items-center py-6">
+          <div
+            class="mx-auto max-w-screen-xl px-4 justify-center text-center flex h-screen items-center"
+          >
+            <div class="mx-auto max-w-3xl text-center -mt-60">
+              <h1
+                class="bg-clip-text font-normal lg:text-7xl text-3xl tracking-wider custom-font-1"
+              >
+                HI THERE!
+              </h1>
+
+              <p
+                class="mx-auto mt-4 max-w-xl sm:text-xl/relaxed tracking-wider font-light"
+              >Welcome to my portfolio! I'm Samuel Kyalo, and I love bringing ideas to life. From creating eye-catching designs to solving problems with a creative twist, I'm here to make your vision a reality.
+               Explore my work to see how I can help you tell your story and achieve your goals. Let's collaborate and create something amazing together!
+              </p> 
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </header>
+<hr/>
+    <!-- End of Header -->
+
+    <!-- About Section -->
+
+    <section id="about">
+        <div class="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
+            <div class="relative z-10 lg:py-16">
+              <div class="relative h-64 sm:h-80 lg:h-full">
+                <img
+                  alt="my picture"
+                  src="img/MyImage.jpg"
+                  class="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+            </div>
+      
+            <div class="relative flex items-center bg-gray-100">
+              <span
+                class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-gray-100"
+              ></span>
+      
+              <div class="p-8 sm:p-16 lg:p-24">
+                <h2 class="text-2xl font-bold sm:text-3xl">
+                  About me
+                </h2>
+      
+                <p class="mt-4 text-gray-600">
+                  Education:
+I've had a diverse educational journey, attending primary school at three different institutions before completing my lower education at Chogoria Boys. For high school, I studied at Makueni National School. Currently, I'm pursuing my bachelor's degree at Strathmore University.<br>
+
+Skills:
+My technical skills are focused on web development, where I'm proficient in using various text editors and WordPress. Additionally, I have experience in mobile development.<br>
+
+Interests:
+Recently, I've developed a keen interest in Internet of Things (IoT), a topic I'm eager to delve deeper into and explore further.<br>
+                </p>
+      
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+</body>
+<hr/>
+    <!-- End of About Section -->
+
+    <!-- Projects Section -->
+
+    <section  id="projects">
+        <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 sm:py-12 lg:px-8">
+          <header class="text-center">
+            <h2 class="text-xl font-bold text-gray-900 sm:text-3xl" >
+              My projects
+            </h2>
+      
+            <p class="max-w-lg mx-auto mt-4 text-gray-500">
+              I have done a couple of projects and also highlighted a couple for you to check out including my mobile
+              project, KejaPLus, statistics for machine learning and a qr code generator that I want to work on.
+            </p>
+          </header>
+      
+          <ul class="grid grid-cols-1 gap-4 mt-8 lg:grid-cols-3">
+            <li>
+              <a href="https://drive.google.com/file/d/1oROqRmtq_10z63KtisaQP_OqYACq-C5b/view?usp=sharing" class="relative block group">
+                <img
+                  src="img/KejaPLus.jpg"
+                  alt=""
+                  class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
+                />
+              </a>
+            </li>
+      
+            <li>
+              <a href="https://drive.google.com/file/d/12sH4-Ja9ULC5hbn0zv3Aw8HS3sfTADnW/view?usp=sharing" class="relative block group">
+                <img
+                  src="img/ML.jpg"
+                  alt=""
+                  class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
+                />
+              </a>
+            </li>
+           <li>
+              <a href="https://drive.google.com/file/d/1aa-RAA28aPJ9dq3F_aeW_hsmAmCDcbHy/view?usp=sharing" class="relative block group">
+                <img
+                  src="img/free-qr-code-generator.png"
+                  alt=""
+                  class="object-cover w-full transition duration-500 aspect-square group-hover:opacity-90"
+                />
+              </a>
+            </li>
+          
+          </ul>
+        </div>
+      </section>
+
+    <!-- End of Projects Section -->
+
+    <!-- Footer -->
+
+    <footer class="bg-white lg:grid lg:grid-cols-2" id="contact">
+      <div class="px-4 py-16 sm:px-6 lg:col-span-2 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+          <div>
+            <p>
+              <span class="text-xs uppercase tracking-wider text-gray-500">
+                Contact me
+              </span>
+
+              <a
+                href="https://mail.google.com/mail/u/0/#inbox"
+                class="block text-xl font-medium text-gray-900 hover:opacity-75 sm:text-2xl hover:underline underline-offset-4"
+              >
+                samuelkyalo90@gmail.com
+              </a>
+            </p>
+          </div>
+
+          
+
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <p>
+                <span class="text-xs uppercase tracking-wider text-gray-500">
+                  Let's connect
+                </span>
+              </p>
+
+              <ul class="mt-1 flex gap-6">
+                <li>
+                  <a
+                    href="https://www.facebook.com/"
+                    rel="noreferrer"
+                    target="_blank"
+                    class="text-gray-700 transition hover:opacity-75"
+                    data-te-toggle="tooltip"
+                    data-te-placement="top"
+                    title="Facebook"
+                  >
+                    <span class="sr-only">Facebook</span>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      class="main-grid-item-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                      />
+                    </svg>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://www.instagram.com/"
+                    rel="noreferrer"
+                    target="_blank"
+                    class="text-gray-700 transition hover:opacity-75"
+                    data-te-toggle="tooltip"
+                    title="Instagram"
+                  >
+                    <span class="sr-only">Instagram</span>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      class="main-grid-item-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <rect height="20" rx="5" ry="5" width="20" x="2" y="2" />
+                      <path
+                        d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                      />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/samuel-kyalo-a0840b2b2/"
+                    rel="noreferrer"
+                    target="_blank"
+                    class="text-gray-700 transition hover:opacity-75"
+                    data-te-toggle="tooltip"
+                    title="LinkedIn"
+                  >
+                    <span class="sr-only">LinkedIn</span>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      class="main-grid-item-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                      />
+                      <rect height="12" width="4" x="2" y="9" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    href="https://github.com/Kyalosam90"
+                    rel="noreferrer"
+                    target="_blank"
+                    class="text-gray-700 transition hover:opacity-75"
+                    data-te-toggle="tooltip"
+                    title="GitHub"
+                  >
+                    <span class="sr-only">GitHub</span>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      class="main-grid-item-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                      />
+                    </svg>
+                  </a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+
+          
+
+        <div class="mt-12 border-t border-gray-100 pt-12">
+          <div class="sm:flex sm:items-center sm:justify-between">
+            <p class="mt-8 text-xs text-gray-500 sm:mt-0 tracking-wider">
+              &copy; 2024. SAMUEL KYALO
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End of Footer -->
+
+    <button
+      onclick="backToTop()"
+      id="backToTopBtn"
+      class="fixed bottom-10 right-10 p-2 rounded-full flex items-center justify-center transition-colors focus:outline-none"
+      title="Back to Top"
+    >
+      <svg
+        class="w-6 h-6"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        />
+      </svg>
+    </button>
+
+    <!-- Back to Top Button -->
+    <script>
+      const backToTopBtn = document.getElementById("backToTopBtn");
+
+      const backToTop = () => {
+        document.body.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+
+        document.documentElement.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      };
+
+      const scrollFunction = () => {
+        if (window.scrollY > 20) {
+          backToTopBtn.style.display = "block";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      };
+
+      window.addEventListener("scroll", scrollFunction);
+      backToTopBtn.addEventListener("click", backToTop);
+    </script>
+
+    <!-- Burger Menu Button -->
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      menuToggle.addEventListener("click", () => {
+        document.getElementById("menu").classList.toggle("hidden");
+      });
+
+      const closeMenu = document.getElementById("close-menu");
+      closeMenu.addEventListener("click", () => {
+        document.getElementById("menu").classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
